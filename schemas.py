@@ -1,6 +1,6 @@
 from typing import List, Union
 
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 
 class Token(BaseModel):
@@ -12,13 +12,13 @@ class TokenData(BaseModel):
     username: Union[str, None] = None
 
 
-class User(BaseModel):
+class UserInfo(BaseModel):
     username: str
-    email: Union[str, None] = None
-    full_name: Union[str, None] = None
+    password: str
+    email: EmailStr
 
 
-class UserInDB(User):
+class UserInDB(UserInfo):
     hashed_password: str
 
 class ItemBase(BaseModel):

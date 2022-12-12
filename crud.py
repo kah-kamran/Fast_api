@@ -7,9 +7,7 @@ from database import get_db
 def get_user(user_id: int, db: Session = Depends(get_db)):
     return db.query(models.User).filter(models.User.id == user_id).first()
 
-
-def get_user_by_email(db: Session, email: str):
-    return db.query(models.User).filter(models.User.email == email).first()
+    # return db.query(models.User).filter(models.User.email == email).first()
 
 
 def get_users(db: Session = Depends(get_db), skip: int = 0, limit: int = 100):
