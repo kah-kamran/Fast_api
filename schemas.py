@@ -54,3 +54,6 @@ class UserList(UserBase):
 
     class Config:
         orm_mode = True
+
+class EmailSchema(BaseModel):
+   email: List[EmailStr]
